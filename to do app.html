@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+ 
+<head>
+    <style>
+        * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+   
+  body {
+    background: palegoldenrod;
+    overflow: auto;
+  }
+   
+  h1{
+     text-align: center;
+     margin: 5%;
+     font-size: 5rem;
+     text-decoration: burlywood;
+     
+  }
+   
+  ul {
+    text-align: center;
+    padding-left: 10%;
+    padding: 7%;
+    font-size: 2rem;
+    list-style: circle;
+  }
+  
+    </style>
+    <meta charset="utf-8">
+    <title>to do list app</title>
+    <link rel="stylesheet" href="style.css">
+   
+    <link rel="stylesheet" href=
+"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<script>
+    function add_item() {
+ 
+ let item = document.getElementById("box");
+ let list_item = document.getElementById("list_item");
+ if(item.value != ""){
+
+     let make_li = document.createElement("LI");
+     make_li.appendChild(document.createTextNode(item.value));
+
+     list_item.appendChild(make_li);
+
+     item.value=""
+      
+     make_li.onclick = function(){
+       this.parentNode.removeChild(this);
+     }
+
+ }
+ else{
+
+   alert("Add an item");
+ }
+
+}
+</script>
+ 
+<body>
+    <body style="background-color:pink"></body>
+    <h1 style="color:lightcoral;">A TO DO LIST APP</h1>
+    <div class="container">
+        <h1 class="row">
+          &nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;
+        </h1>
+        <br/><br/>
+        <div class="row">
+            <form class="form-inline col-sm-offset-3">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                      <i class=""></i>
+                    </span>
+                    <input type="text" class="form-control"
+                           placeholder="Add a task"
+                           id="box" style="width: 30vw" />
+                </div>
+                <div class="form-group">
+                    <input type="button"
+                           class="btn btn-primary form-control"
+                           value="add" style="width: 10vw"
+                           onclick="add_item()" />
+                </div>
+            </form>
+        </div>
+        <div class="row">
+            <ul id="list_item">
+            </ul>
+        </div>
+    </div>
+    
+</body>
+ 
+</html>
